@@ -1,169 +1,91 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
+1. Difference between var, let, and const
+Keyword	Scope	Redeclare	Reassign	Hoisting	Use Case
+var	Function scoped	✅	✅	Hoisted (initialized as undefined)	পুরোনো JS কোডে বেশি
+let	Block scoped	❌	✅	Hoisted (TDZ এ থাকে)	যখন reassign দরকার
+const	Block scoped	❌	❌	Hoisted (TDZ এ থাকে)	যখন মান constant রাখতে হবে
+```js
+var a = 10;
+var a = 20; // allowed ✅
 
-### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
+let b = 30;
+b = 40; // allowed ✅
 
-### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
-
-### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
-
----
-# Green Earth
-
-
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
-
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
-
-## Alternative Private Repository: https://classroom.github.com/a/JMuIYqgK 
-
-
----
-🌴 API Endpoints
----
-1. Get 🌴All Plants
-```bash
-https://openapi.programming-hero.com/api/plants
-```
-
-2. Get 🌴All categories <br/>
-```bash
-https://openapi.programming-hero.com/api/categories
+const c = 50;
+// c = 60; ❌ not allowed
 ```
 
 
-3. Get 🌴plants by categories <br/>
-```bash
-https://openapi.programming-hero.com/api/category/${id}
+
+2. Difference between forEach(), map(), and filter()
+
+forEach() → শুধু loop চালায়, কিছু return করে না
+
+map() → প্রতিটি element transform করে নতুন array return করে
+
+filter() → condition true হলে সেই elements দিয়ে নতুন array return করে
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((n) => console.log(n)); 
+// শুধু print করবে, কিছু return করবে না
+
+const squares = numbers.map((n) => n * n);
+console.log(squares); // [1, 4, 9, 16, 25]
+
+const evens = numbers.filter((n) => n % 2 === 0);
+console.log(evens); // [2, 4]
 ```
+3. Arrow Functions
 
-```bash
-https://openapi.programming-hero.com/api/category/1
+Arrow function → shorter syntax + surrounding scope থেকে this inherit করে।
+```js
+// Normal Function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow Function
+const addArrow = (a, b) => a + b;
+
+
+✅ Advantages:
+
+Shorter & cleaner
+
+this context fix করে (no binding issues)
+
+Callbacks, array methods এ বেশি ব্যবহার হয়
 ```
+4. Destructuring Assignment
 
-4. Get 🌴Plants Detail <br/>
+Destructuring → Array/Object থেকে value unpack করে variable এ রাখা যায়।
+```js
+// Array Destructuring
+const numbers = [10, 20, 30];
+const [x, y, z] = numbers;
+console.log(x, y, z); // 10 20 30
 
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
+// Object Destructuring
+const user = { name: "Riyaz", age: 21 };
+const { name, age } = user;
+console.log(name, age); // Riyaz 21
 ```
+5. Template Literals
 
-```bash
-https://openapi.programming-hero.com/api/plant/1
+Template literals → backtick (`) দিয়ে লেখা হয়।
+
+Features:
+
+Expression/variable embed করা যায় → ${}
+
+Multi-line string লেখা যায়
+```js
+const name = "Plabon Chandro Modak";
+const age = 21;
+
+const text1 = "My name is " + name + " and I am " + age + " years old.";
+const text2 = `My name is ${name} and I am ${age} years old.`;
+
+console.log(text1);
+console.log(text2);
 ```
----
-
-
-
-
-## ✅ Main Requirements 
-
-#### 1) Navbar
-
-- Website **logo/name** on the **left**  
-- **Menu items** in the **center** 
-- **Plant a Tree button** on the **right** 
-
-#### 2) Banner 
-- A **background image**  
-- A **title** and **subtitle**  
-- A **centered button**  
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
-
----
-#### 7) Create a README file to answer the following question-
-
-
-#### 1) What is the difference between var, let, and const?
-
-#### 2) What is the difference between map(), forEach(), and filter()? 
-
-#### 3) What are arrow functions in ES6?
-
-#### 4) How does destructuring assignment work in ES6?
-
-#### 5) Explain template literals in ES6. How are they different from string concatenation?
-
-## ⚙️ Functionalities 
-
-1) Category Loading 
-Load Tree Categories dynamically on the left side.
-
-2) Category Click → Tree Data 
-On clicking a category: load trees of that category.
-
-Display in a 3-column card layout.
-
-3) Card Contents 
- Each card includes:
-
-        - Image
-
-        -  Name
-
-        - Short description
-
-        - Category
-
-        - Price
-
-        - Add to Cart button
-
-4) Modal on Card Click 
-Clicking a tree name on a card opens a modal with full tree details.
-
-
-##  🧪 Challenges 
-
-
-    1) Add to Cart 
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name 
-
-    2) Total Calculation 
-    Calculate total price of trees in cart.
-
-    3) Remove from Cart 
-    Clicking ❌ removes tree and deducts price from total.
-
-    4) Loading Spinner
-    Show spinner while data is loading.
-
-    5) Active Button State 
-    Highlight active category button when selected.
-
-
-
-🧰 Technology Stack:
-        
-        HTML
-
-        CSS (Vanilla / Tailwind / DaisyUI)
-
-        JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-
-
-
-
-## 🔗 Submission
-- **Live Link :** YOUR_DEPLOYED_URL_HERE  
-- **GitHub Private Repository:** YOUR_REPO_URL_HERE  
-
----
